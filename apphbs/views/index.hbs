@@ -1,2 +1,129 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{data.title}}</title>
+
+    <style>
+        body {
+            background: linear-gradient(180deg, #6b3fa0, #b48cff);
+            font-family: "Trebuchet MS", sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(6px);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            text-align: left;
+        }
+
+        .member-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .member-card {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 15px;
+        }
+
+        .member-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        .meta {
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .raw-data {
+            background: rgba(0, 0, 0, 0.25);
+            padding: 12px;
+            border-radius: 12px;
+            white-space: pre-wrap;
+            text-align: left;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>{{data.title}}</h1>
+        <p>{{data.description}}</p>
+        <p><strong>Ano:</strong> {{data.year}}</p>
+    </header>
+
+    <div class="container">
+
+        <section class="card">
+            <h2>Dados gerais</h2>
+            <div class="meta">
+                <p><strong>Título:</strong> {{data.title}}</p>
+                <p><strong>Descrição:</strong> {{data.description}}</p>
+                <p><strong>Ano:</strong> {{data.year}}</p>
+                <p><strong>Total de membros:</strong> {{data.members.length}}</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Membros</h2>
+            <div class="member-list">
+                {{#each data.members}}
+                <article class="member-card">
+                    <h3>{{this.name}}</h3>
+                    <img src="{{this.image}}" alt="{{this.name}}" />
+                    <p><strong>Animal:</strong> {{this.animal}}</p>
+                    <p><strong>Cor:</strong> {{this.color}}</p>
+                </article>
+                {{/each}}
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>Exibindo todos os dados da resposta do servidor.</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Yves - yyxy</title>
+
+  <style>
+    body{
+      background: linear-gradient(180deg,#6b3fa0,#b48cff);
+      font-family: "Trebuchet MS", sans-serif;
+      color:white;
+      margin:0;
+      padding:0;
+      text-align:center;
+    }
+
+    header{
+      padding:40px;
+    }
+
+    h1{
+      font-size:48px;
+      margin-bottom:10px;
+    }
+
+    .container{
+      max-width:700px;
+      margin:auto;
+      padding:20px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.15);
+      backdrop-filter: blur(6px);
+      border-radius:20px;
+      padding:25px;
+      margin-top:30px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .image-space{
+      width:100%;
+      height:250px;
+      border-radius:15px;
+      border:2px dashed rgba(255,255,255,0.7);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:20px;
+      font-size:14px;
+      opacity:0.9;
+      overflow:hidden;
+    }
+
+    footer{
+      margin-top:40px;
+      padding:20px;
+      font-size:14px;
+      opacity:0.8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1 id="name"></h1>
+    <p>Membro da unit yyxy</p>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <p><strong>Animal:</strong> <span id="animal"></span></p>
+      <p><strong>Cor:</strong> <span id="color"></span></p>
+      <p><strong>Descrição:</strong> <span id="description"></span></p>
+
+      <div class="image-space" id="imageSpace">
+        <span>Espaço para foto da Yves</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p id="footer"></p>
+  </footer>
+
+  <script>
+    // Simulando dados (como se viessem do backend HBS)
+    const yves = {
+      name: "Yves",
+      animal: "Cisne",
+      color: "Borgonha",
+      description: "Líder da yyxy, conhecida por sua elegância e conceito 'new'.",
+      image: "https://i.pinimg.com/1200x/53/9f/85/539f85fef2bd138e4128ddcfd559c8aa.jpg"
+    };
+
+    // Inserindo dados na página
+    document.getElementById("name").textContent = yves.name;
+    document.getElementById("animal").textContent = yves.animal;
+    document.getElementById("color").textContent = yves.color;
+    document.getElementById("description").textContent = yves.description;
+    document.getElementById("footer").textContent = `© ${new Date().getFullYear()} - Página Yves`;
+
+    // Inserindo imagem se existir
+    if (yves.image) {
+      const img = document.createElement("img");
+      img.src = yves.image;
+      img.style.width = "100%";
+      img.style.height = "100%";
+      img.style.objectFit = "cover";
+      img.style.borderRadius = "15px";
+
+      const imageSpace = document.getElementById("imageSpace");
+      imageSpace.innerHTML = "https://i.pinimg.com/1200x/53/9f/85/539f85fef2bd138e4128ddcfd559c8aa.jpg";
+      imageSpace.appendChild(img);
+    }
+  </script>
+
+</body>
+</html>
