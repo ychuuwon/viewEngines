@@ -75,28 +75,54 @@ footer {
 
 <div class="container">
 <h1>O que é EJS?</h1>
-<p>EJS permite inserir JavaScript dentro do HTML.</p>
+<p>
+EJS (Embedded JavaScript) é uma engine de templates que permite misturar HTML com JavaScript.
+Ela é muito utilizada com Node.js e Express para gerar páginas dinâmicas.
+</p>
+</div>
+
+<div class="container">
+<h2>Como o EJS funciona?</h2>
+<p>
+O EJS permite inserir código JavaScript dentro do HTML usando tags especiais.
+Assim, o servidor pode enviar dados e o HTML é montado dinamicamente.
+</p>
+<ul>
+<li>&lt;% %&gt; → executa código</li>
+<li>&lt;%= %&gt; → mostra dados</li>
+<li>&lt;%- %&gt; → mostra HTML sem escapar</li>
+</ul>
+</div>
+
+<div class="container">
+<h2>Exemplo prático</h2>
+<pre>
+&lt;h1&gt;Olá, &lt;%= nome %&gt;&lt;/h1&gt;
+</pre>
+<p>
+O valor da variável <strong>nome</strong> será inserido automaticamente.
+</p>
 </div>
 
 <div class="container">
 <h2>Vantagens do EJS</h2>
-
 <ul>
-<% 
-const vantagens = [
-"Fácil de aprender",
-"Permite usar JavaScript diretamente",
-"Boa integração com Express",
-"Renderização dinâmica",
-"Organização de código"
-];
-
-vantagens.forEach(function(item){ %>
-<li><%= item %></li>
-<% }); %>
+<li>Simples de aprender</li>
+<li>Integração com Express</li>
+<li>Permite páginas dinâmicas</li>
+<li>Reutilização de código</li>
 </ul>
-
 </div>
+
+<div class="container">
+<h2>Quando usar?</h2>
+<p>
+Use EJS quando precisar renderizar dados do servidor diretamente no HTML.
+É ideal para projetos que não usam frameworks frontend como React.
+</p>
+</div>
+
+<footer></footer>
 
 <script>
 function goTo(r){window.location.href=r}

@@ -1,35 +1,85 @@
-extends layout
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    title PUG
 
-block content
+    style.
+      body {
+        margin: 0;
+        font-family: Arial;
+        background: linear-gradient(135deg, #dcedc8, #f5f5dc);
+        animation: fadeIn 1s ease-in;
+      }
+
+      header {
+        background: #aed581;
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      }
+
+      button {
+        background: #fff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      button:hover {
+        transform: scale(1.1);
+        background: #c5e1a5;
+      }
+
+      .container {
+        background: #fff;
+        margin: 20px auto;
+        padding: 20px;
+        max-width: 800px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        animation: slideUp 0.8s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
 
   body
+    header
+      button(onclick="goTo('/')") Pug
+      button(onclick="goTo('/app')") App
+      button(onclick="goTo('/app/resumo')") Resumo
+
     .container
-      h1 Odd Eye Circle 
+      h1 O que é Pug 🐶
+      p Pug é uma template engine que usa indentação no lugar de HTML tradicional.
 
-      p
-        | Odd Eye Circle é uma sub-unit do grupo LOONA formada por
-        | Kim Lip, Jinsoul e Choerry. A unidade representa uma parte
-        | importante da narrativa do Loonaverse.
-      
-      h2 Integrantes
+    .container
+      h2 Vantagens do Pug 🐶
       ul
-        li Kim Lip  associada à cor vermelha e ao eclipse.
-        li Jinsoul  associada à cor azul e ao oceano.
-        li Choerry  associada à cor roxa e à conexão entre mundos.
-    
+        each item in lista
+          li= item
 
-      h2 Papel no Loonaverse
-      p
-        | No Loonaverse, Odd Eye Circle possui o "Odd Eye", um poder
-        | que permite atravessar dimensões. As integrantes atuam como
-        | ligação entre diferentes mundos e ajudam a conectar os
-        | acontecimentos da história envolvendo outras integrantes
-        | do LOONA.
-
-      p
-        | O conceito da unit aparece principalmente no mini-álbum
-        | "Mix e Match" e em videoclipes como "Girl Front", onde
-        | exploram temas de identidade, movimento entre realidades
-        | e descoberta de si mesmas.
-      a.btn.btn-primary(href="/jinsoul") Ver detalhes de Jinsoul
-
+    script.
+      function goTo(r){window.location.href=r}

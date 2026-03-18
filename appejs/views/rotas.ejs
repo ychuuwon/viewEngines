@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>EJS</title>
+<title>Rotas</title>
 <style>
 body {
   margin:0;
@@ -74,29 +74,53 @@ footer {
 </header>
 
 <div class="container">
-<h1>O que é EJS?</h1>
-<p>EJS permite inserir JavaScript dentro do HTML.</p>
+<h1>O que são Rotas?</h1>
+<p>
+Rotas são caminhos definidos no servidor que determinam como a aplicação responde às requisições do usuário.
+Cada URL acessada corresponde a uma rota específica.
+</p>
 </div>
 
 <div class="container">
-<h2>Vantagens do EJS</h2>
-
-<ul>
-<% 
-const vantagens = [
-"Fácil de aprender",
-"Permite usar JavaScript diretamente",
-"Boa integração com Express",
-"Renderização dinâmica",
-"Organização de código"
-];
-
-vantagens.forEach(function(item){ %>
-<li><%= item %></li>
-<% }); %>
-</ul>
-
+<h2>Como funcionam?</h2>
+<p>
+Quando você acessa uma URL, o servidor verifica qual rota corresponde àquele caminho e executa a função associada.
+</p>
+<pre>
+app.get('/ejs/rotas', (req, res) => {
+  res.render('rotas');
+});
+</pre>
 </div>
+
+<div class="container">
+<h2>Tipos de requisições</h2>
+<ul>
+<li><strong>GET:</strong> buscar dados</li>
+<li><strong>POST:</strong> enviar dados</li>
+<li><strong>PUT:</strong> atualizar dados</li>
+<li><strong>DELETE:</strong> remover dados</li>
+</ul>
+</div>
+
+<div class="container">
+<h2>Exemplos de rotas</h2>
+<ul>
+<li>/ → página inicial</li>
+<li>/ejs → página EJS</li>
+<li>/ejs/rotas → esta página</li>
+</ul>
+</div>
+
+<div class="container">
+<h2>Por que são importantes?</h2>
+<p>
+As rotas organizam o sistema, facilitam a navegação e tornam o código mais estruturado e escalável.
+Sem rotas, não seria possível dividir corretamente as funcionalidades de uma aplicação web.
+</p>
+</div>
+
+<footer></footer>
 
 <script>
 function goTo(r){window.location.href=r}

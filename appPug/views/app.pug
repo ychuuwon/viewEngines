@@ -1,0 +1,97 @@
+doctype html
+html(lang="pt-BR")
+  head
+    meta(charset="UTF-8")
+    title App
+
+    style.
+      body {
+        margin: 0;
+        font-family: Arial;
+        background: linear-gradient(135deg,#c8e6c9,#f5f5dc);
+        animation: fadeIn 1s ease-in;
+      }
+
+      header {
+        background:#66bb6a;
+        padding:15px;
+        display:flex;
+        justify-content:center;
+        gap:15px;
+        box-shadow:0 3px 10px rgba(0,0,0,0.1);
+      }
+
+      button {
+        background:#f1f8e9;
+        border:none;
+        padding:10px 20px;
+        border-radius:10px;
+        cursor:pointer;
+        transition: all 0.3s ease;
+      }
+
+      button:hover {
+        transform: scale(1.1);
+        background:#dcedc8;
+      }
+
+      .container {
+        background:#fffde7;
+        margin:20px auto;
+        padding:20px;
+        max-width:800px;
+        border-radius:15px;
+        box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        animation: slideUp 0.8s ease;
+      }
+
+      footer {
+        height:60px;
+        background:#81c784;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity:0;
+        }
+        to {
+          opacity:1;
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(30px);
+          opacity:0;
+        }
+        to {
+          transform: translateY(0);
+          opacity:1;
+        }
+      }
+
+  body
+    header
+      button(onclick="goTo('/')") Pug 🐶
+      button(onclick="goTo('/app')") App
+      button(onclick="goTo('/app/resumo')") Resumo
+
+    .container
+      h1 O que é o app.js?
+      p O app.js é o arquivo principal de uma aplicação Express.
+
+    .container
+      h2 Funções do app.js
+      ul
+        li Configurar servidor
+        li Definir rotas
+        li Definir middlewares
+
+    .container
+      h2 Relação com o pug 🐶
+      p O app.js define que o pug 🐶 será usado para renderizar as páginas.
+
+    footer
+
+    script.
+      function goTo(r){window.location.href=r}

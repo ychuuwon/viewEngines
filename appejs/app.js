@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var chuuRouter = require('./routes/chuu');
+var ejsRouter = require('./routes/ejs'); 
 
 var app = express();
 
@@ -20,9 +20,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// ROTAS
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/chuu', chuuRouter);
+app.use('/ejs', ejsRouter); 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -30,14 +31,12 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
+  app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
   res.status(err.status || 500);
   res.render('error');
 });
 
-module.exports = app;
+    module.exports = app;
